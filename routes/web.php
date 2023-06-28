@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [FilmController::class, 'index'])->name('films.index');
+
+Route::resource('films', FilmController::class);
+
+Route::get('/tes', function(){
+    return view('app.booking.seat-booking');
 });
+
+Route::middleware('auth')->group(function () {
+});
+Route::get('films/{film}/book/seats', [FilmController::class, 'bookSeat'])->name('films.book.seats');
