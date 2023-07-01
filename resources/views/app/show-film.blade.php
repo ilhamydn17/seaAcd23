@@ -37,7 +37,7 @@
                                 <p class="mt-0">{{$film->description}}</p>
                                 <div class="d-flex justify-content-center mt-5">
                                     <a href="{{back()->getTargetUrl()}}" class="btn btn-info mr-2">Kembali</a>
-                                    <a href="{{ route('films.book.seats', $film) }}" class="btn btn-primary">Tonton Sekarang</a>
+                                    <a href="{{ route('films.book', $film) }}" class="btn btn-primary">Tonton Sekarang</a>
                                 </div>
                             </div>
 

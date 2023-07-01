@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Film;
+use App\Models\OrderedSeat;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
+use App\Models\Seat;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FilmController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
@@ -66,7 +71,4 @@ class FilmController extends Controller
         //
     }
 
-    public function bookSeat(Film $film){
-        return view('app.booking.seat-booking');
-    }
 }

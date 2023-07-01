@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->nullable()->onDelete('restrict');
-            $table->foreignId('film_id')->constrained('users')->nullable()->onDelete('restrict');
+            $table->integer('total_cost');
             $table->timestamps();
         });
     }

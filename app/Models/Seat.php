@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\OrderedSeat;
+use App\Models\FilmSeat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,7 +11,7 @@ class Seat extends Model
     use HasFactory;
     protected $table = 'seats';
     protected $guarded = ['id'];
-    public function orderedSeat(){
-        return $this->hasMany(OrderedSeat::class);
+    public function filmSeat(){
+        return $this->hasMany(FilmSeat::class);
     }
 }

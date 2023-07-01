@@ -7,18 +7,22 @@
     <title>Layout &rsaquo; Top Navigation &mdash; Stisla</title>
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ asset('node_modules/prismjs/themes/prism.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="{{ asset('custom/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/css/owl.theme.default.min.css') }}">
+
 
     <style>
         scroll-behavior: smooth;
@@ -29,7 +33,7 @@
     <div id="app">
         <div class="main-wrapper container">
             {{-- NAVBAR --}}
-                @include('layout.navbar')
+            @include('layout.navbar')
             {{-- END NAVBAR --}}
 
             <!-- Main Content -->
@@ -80,25 +84,25 @@
     </div>
 
     {{-- Jquery --}}
-    <script src="{{asset('custom/js/jquery.js')}}">
-          $('.feature-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            responsive:{
-                0:{
-                    items:1
+    <script src="{{ asset('custom/js/jquery.js') }}">
+        $('.feature-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
                 },
-                600:{
-                    items:3
+                600: {
+                    items: 3
                 },
-                1000:{
-                    items:5
+                1000: {
+                    items: 5
                 }
             }
         })
     </script>
-     <script src="{{asset('custom/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('custom/js/owl.carousel.min.js') }}"></script>
 
     <!-- General JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -114,6 +118,7 @@
 
     <!-- JS Libraies -->
     <script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="{{ asset('node_modules/prismjs/prism.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="../assets/js/page/modules-slider.js"></script>
@@ -121,7 +126,11 @@
     <!-- Template JS File -->
     <script src="../assets/js/scripts.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <script src="{{ asset('assets/js/page/bootstrap-modal.js') }}"></script>
 
+
+
+    @include('sweetalert::alert')
 </body>
 
 </html>

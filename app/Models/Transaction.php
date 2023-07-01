@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Film;
 use App\Models\User;
+use App\Models\OrderedSeat;
+use App\Models\DetailTransaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -15,7 +16,7 @@ class Transaction extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function film(){
-        return $this->belongsTo(Film::class);
+    public function detailTransaction(){
+        return $this->hasMany(DetailTransaction::class);
     }
 }

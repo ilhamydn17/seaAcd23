@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Film;
 use Illuminate\Database\Seeder;
+use Database\Seeders\FilmSeatSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             FilmSeeder::class,
             SeatSeeder::class,
+            FilmSeatSeeder::class,
         ]);
     }
 }

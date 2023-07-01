@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Seat;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
 
 class SeatSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class SeatSeeder extends Seeder
      */
     public function run(): void
     {
-        Seat::factory()->count(64)->create();
+        for ($i = 1; $i <= 64; $i++){
+            DB::table('seats')->insert(['seat_number'=>'S-'.$i]);
+        }
     }
 }

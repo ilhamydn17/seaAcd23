@@ -19,54 +19,52 @@
 
     </form>
     <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
-            <a href="#" class="btn btn-info">Login</a>
-        </li>
-        <li class="dropdown"><a href="#" data-toggle="dropdown"
-                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
-                <a href="features-profile.html" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
+        @if (Auth::check())
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
                 </a>
-                <a href="features-activities.html" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Activities
-                </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item has-icon text-danger">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-            </div>
-        </li>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#"
+                        onclick="
+                        event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                        class="dropdown-item has-icon text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        @else
+            <li class="nav-item ">
+                <a href="{{ route('register') }}" class="btn btn-info "><i style="font-size: 14px" class="fas fa-user-plus"></i> Register</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('login') }}" class="btn btn-warning ml-2 mr-3"><i style="font-size: 14px" class="fas fa-sign-in-alt"></i> Login</a>
+            </li>
+        @endif
     </ul>
 </nav>
 
 {{-- NAVBAR  KEDUA --}}
 <nav class="navbar navbar-secondary navbar-expand-lg">
-    <div class="container">
+    <div class="container d-flex justify-content-center">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="#our-films" class="nav-link">
-                    <i class="fas fa-fire"></i><span>All Film</span></a>
+                <a href="{{ route('films.index') }}" class="nav-link">
+                    <i class="fas fa-layer-group"></i><span>All Film</span></a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-fire"></i>
-                    <span>Favourite Films</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" data-toggle="dropdown" class="nav-link">
-                    <i class="fas fa-fire"></i>
-                    <span></span>
-                </a>
-            </li>
+            @if (Auth::check())
+                <li class="nav-item">
+                    <a href="{{ route('user.profile') }}" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>User Info</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>

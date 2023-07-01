@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +25,10 @@ Route::get('/tes', function(){
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('films/{film}/book', [BookingController::class, 'bookSeat'])->name('films.book');
+    Route::post('films/{film}/book/checkout', [BookingController::class, 'bookCheckout'])->name('films.book.checkout');
+    Route::post('films/{film}/book/confirm', [BookingController::class, 'confirmCheckout'])->name('films.book.confirm');
+
+    Route::get('user/profile', [UserController::class, 'index'])->name('user.profile');
+    Route::post('user/top-up', [UserController::class, 'topupBalance'])->name('user.topup');
 });
-Route::get('films/{film}/book/seats', [FilmController::class, 'bookSeat'])->name('films.book.seats');

@@ -16,13 +16,15 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="POST" action="#" class="needs-validation" novalidate="">
+                            <form method="POST" action="{{ route('login') }}" class="needs-validation">
+                                @csrf
+                                @method('POST')
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                    <label for="username">Username</label>
+                                    <input id="username" type="username" class="form-control" name="username" tabindex="1"
                                         required autofocus>
                                     <div class="invalid-feedback">
-                                        Please fill in your email
+                                        Please fill in your Email
                                     </div>
                                 </div>
 

@@ -13,10 +13,14 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('node_modules/prismjs/themes/prism.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+
+    {{-- Font Awesome CDN --}}
+    <script src="https://kit.fontawesome.com/5f53d78495.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -28,8 +32,13 @@
                 <form class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li>
-                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg ">
+                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
                                 <i class="fas fa-bars"></i>
+                            </a>
+                        </li>
+                        <li class="ml-2">
+                            <a href="{{ route('films.index') }}" class="nav-link nav-link-lg">
+                                <i class="fas fa-home"></i>
                             </a>
                         </li>
                         <li>
@@ -44,23 +53,18 @@
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-title">Logged in 5 min ago</div>
-                            <a href="features-profile.html" class="dropdown-item has-icon">
-                                <i class="far fa-user"></i> Profile
-                            </a>
-                            <a href="features-activities.html" class="dropdown-item has-icon">
-                                <i class="fas fa-bolt"></i> Activities
-                            </a>
-                            <a href="features-settings.html" class="dropdown-item has-icon">
-                                <i class="fas fa-cog"></i> Settings
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item has-icon text-danger">
+                            <a href="#" class="dropdown-item has-icon text-danger"
+                                onclick="
+                            event.preventDefault();
+                            document.getElementById('logout-form').submit();">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
                         </div>
                     </li>
                 </ul>
@@ -88,11 +92,7 @@
                                 <i class="fas fa-fire"></i><span>Form Booking</span>
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-fire"></i><span>Payment</span>
-                            </a>
-                        </li>
+                    </ul>
                 </aside>
             </div>
             {{-- END SIDEBAR --}}
@@ -126,6 +126,26 @@
         </div>
     </div>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">sdfsdfsdfs title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer bg-whitesmoke br">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- General JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -139,12 +159,17 @@
     <script src="{{ asset('assets/js/stisla.js') }}"></script>
 
     <!-- JS Libraies -->
+    <script src="{{ asset('node_modules/prismjs/prism.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <!-- Page Specific JS File -->
+    <script src="{{ asset('assets/js/page/bootstrap-modal.js') }}"></script>
+
+
+    @include('sweetalert::alert')
 </body>
 
 </html>
