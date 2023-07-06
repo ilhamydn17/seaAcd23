@@ -29,14 +29,14 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'password' => $this->passwordRules(),
             'name' => ['required', 'string', 'max:255'],
-            'age'=>['required','numeric']
+            'birthdate'=>['required','date']
         ])->validate();
 
         return User::create([
             'username' => $input['username'],
             'password' => Hash::make($input['password']),
             'name' => $input['name'],
-            'age'=> $input['age']
+            'birthdate'=> $input['birthdate']
         ]);
     }
 }

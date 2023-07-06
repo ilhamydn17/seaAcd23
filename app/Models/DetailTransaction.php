@@ -21,6 +21,6 @@ class DetailTransaction extends Model
     }
 
     public function filmSeat(){
-        return $this->belongsTo(FilmSeat::class);
+        return $this->belongsTo(FilmSeat::class,'filmSeat_id','id','film_seats');
     }
 }

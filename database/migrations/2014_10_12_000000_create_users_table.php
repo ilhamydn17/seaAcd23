@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username', 255)->unique();
             $table->string('password', 255);
             $table->string('name', 255);
-            $table->integer('age');
+            $table->date('birthdate')->nullable();
             $table->integer('balance')->default(0);
             $table->rememberToken();
             $table->timestamps();

@@ -1,5 +1,11 @@
 @extends('layout.user.masterView')
 
+@section('title-us','Profil ' . auth()->user()->name)
+
+@section('sidebar-user-booking')
+    @include('app.userPage.sidebar-userPage')
+@endsection
+
 @section('content-booking')
     <section class="section">
         <div class="section-header">
@@ -21,7 +27,8 @@
                                 <div class="author-box-name">
                                     <a href="#">{{ auth()->user()->name }}</a>
                                 </div>
-                                <div class="author-box-job">{{ auth()->user()->username }}</div>
+                                <div class="author-box-job">Username : {{ auth()->user()->username }}</div>
+                                <div class="author-box-job">Birthdate : {{ Carbon\Carbon::parse(auth()->user()->birthdate)->format('d M Y') }}</div>
                                 <div class="author-box-description">
                                     <div class="row">
                                         <div class="col-4">
@@ -61,7 +68,8 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -84,10 +92,9 @@
                         </div>
                         <div class="form-group">
                             <label for="">Nominal</label>
-                            <input type="number" class="form-control @error('nominal')
-                            is-invalid
-                            @enderror" name="nominal" placeholder="Masukkan nominal">
-
+                            <input type="number"
+                                class="form-control @error('nominal') is-invalid @enderror"
+                                name="nominal" placeholder="Masukkan nominal">
                             @error('nominal')
                                 <div class="invalid-feedback">
                                     {{ $message }}

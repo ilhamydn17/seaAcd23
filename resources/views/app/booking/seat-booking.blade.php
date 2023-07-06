@@ -1,5 +1,11 @@
 @extends('layout.user.masterView')
 
+@section('title-us', 'Pemilihan Kursi Bioskop')
+
+@section('sidebar-user-booking')
+    @include('app.booking.sidebar-booking')
+@endsection
+
 @section('content-booking')
     <section class="section">
         <div class="section-header">
@@ -75,7 +81,7 @@
                     </div>
                     <div class="form-group">
                         <label>Usia</label>
-                        <input type="number" class="form-control" name="age_form" value="{{ auth()->user()->age }}" readonly>
+                        <input type="number" class="form-control" name="age_form" value="{{ $ageUser }}" readonly>
                     </div>
                     <div class="form-group row">
                         <div class="col-6">

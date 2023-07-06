@@ -55,13 +55,13 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="{{ route('films.index') }}" class="nav-link">
-                    <i class="fas fa-layer-group"></i><span>All Film</span></a>
+                    <i class="fas fa-layer-group"></i><span>Semua Film</span></a>
             </li>
             @if (Auth::check())
                 <li class="nav-item">
                     <a href="{{ route('user.profile') }}" class="nav-link">
                         <i class="fas fa-user"></i>
-                        <span>User Info</span>
+                        <span>Akun Anda</span>
                     </a>
                 </li>
             @endif

@@ -21,27 +21,28 @@
                                 @method('POST')
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input id="username" type="username" class="form-control" name="username" tabindex="1"
-                                        required autofocus>
-                                    <div class="invalid-feedback">
-                                        Please fill in your Email
-                                    </div>
+                                    <input id="username" type="username"
+                                        class="form-control @error('username') is-invalid @enderror" name="username"
+                                        tabindex="1" required autofocus>
+                                    @error('username')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <div class="d-block">
                                         <label for="password" class="control-label">Password</label>
-                                        <div class="float-right">
-                                            <a href="#" class="text-small">
-                                                Forgot Password?
-                                            </a>
-                                        </div>
                                     </div>
-                                    <input id="password" type="password" class="form-control" name="password"
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
                                         tabindex="2" required>
-                                    <div class="invalid-feedback">
-                                        please fill in your password
-                                    </div>
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">

@@ -1,12 +1,14 @@
 @extends('layout.master')
 
+@section('title-pub', 'Sea Cinema | All Films')
+
 @section('content')
     <section class="section" id="our-films">
         <div class="section-header">
-            <h1>Our Films</h1>
+            <h1>Tayang Saat Ini</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">All Film</a></div>
-                <div class="breadcrumb-item"><a href="#">Our Films</a></div>
+                <div class="breadcrumb-item active"><a href="#">Semua Film</a></div>
+                <div class="breadcrumb-item"><a href="#">Tayang Saat Ini</a></div>
             </div>
         </div>
 

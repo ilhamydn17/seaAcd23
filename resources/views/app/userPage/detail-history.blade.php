@@ -1,15 +1,16 @@
 @extends('layout.user.masterView')
 
-@section('title-us', 'Pembayaran Pemesanan')
+@section('title-us', 'Detail Transaksi')
 
 @section('sidebar-user-booking')
-    @include('app.booking.sidebar-booking')
+    @include('app.userPage.sidebar-userPage')
 @endsection
+
 
 @section('content-booking')
     <section class="section">
         <div class="section-header">
-            <h1>Pembayaran Pemesanan</h1>
+            <h1>Detail Transaksi</h1>
         </div>
 
         <div class="section-body">
@@ -19,7 +20,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="invoice-title">
-                                <h2>Detail Pemesanan</h2>
+                                <h2>Detail Transaksi</h2>
                                 <div class="invoice-number">Sea Cinema</div>
                             </div>
                             <div class="row mt-3">
@@ -29,12 +30,12 @@
                                         <tr>
                                             <td>Judul Film</td>
                                             <td> : </td>
-                                            <td>{{ $film->title }}</td>
+                                            <td>{{ $detail_transact[0]->filmSeat->film->title }}</td>
                                         </tr>
                                         <tr>
                                             <td>Age Rating</td>
                                             <td> : </td>
-                                            <td>{{ $film->age_rating }}+</td>
+                                            <td>{{ $detail_transact[0]->filmSeat->film->age_rating  }}+</td>
                                         </tr>
                                         <tr>
                                             <td style="width: 150px">Nama Pemesan</td>
@@ -44,7 +45,7 @@
                                         <tr>
                                             <td>Usia</td>
                                             <td> : </td>
-                                            <td>{{ $ageForm }} tahun</td>
+                                            <td>{{ $ageUser }} tahun</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -61,11 +62,11 @@
                                         <th>Nomor Kursi</th>
                                         <th class="text-right">Harga</th>
                                     </tr>
-                                    @foreach ($seatNumber as $item)
+                                    @foreach ($detail_transact as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item }}</td>
-                                            <td class="text-right">Rp.{{ $film->ticket_price }}</td>
+                                            <td>{{ $item->filmSeat->seat->seat_number }}</td>
+                                            <td class="text-right">Rp.{{ $item->filmSeat->film->ticket_price }}</td>
                                         </tr>
                                     @endforeach
                                 </table>
@@ -75,7 +76,7 @@
                                     <hr class="mt-2 mb-2">
                                     <div class="invoice-detail-item">
                                         <div class="invoice-detail-name">Total</div>
-                                        <div class="invoice-detail-value invoice-detail-value-lg">Rp. {{ number_format($totalCost, 0, ',', '.') }}
+                                        <div class="invoice-detail-value invoice-detail-value-lg">Rp. {{ number_format($detail_transact[0]->transaction->total_cost, 0, ',', '.') }}
                                         </div>
                                     </div>
                                 </div>
@@ -86,18 +87,13 @@
                 <hr>
                 <div class="text-md-right">
                     <div class="float-lg-left mb-lg-0 mb-3">
-                        <form action="{{ route('films.book.confirm', $film) }}" method="POST">
+                        <button class="btn btn-danger" data-confirm="Anda Yakin?|Batalkan transaksi pemesanan?" data-confirm-yes="document.getElementById('form-cancel').submit()"><i class="fas fa-times"></i> Batalkan Transaksi</button>
+                        <form id="form-cancel" action="{{ route('films.transaction.cancel', $detail_transact[0]->transaction_id) }}" method="POST">
                             @csrf
                             @method('POST')
-                        <input type="hidden" value="{{ $totalCost }}" name="total_cost">
-                        @foreach ($confirmDataSeat as $item)
-                            <input type="hidden" value="{{ $item }}" name="confirm_data_seat[]">
-                        @endforeach
-                        <button class="btn btn-primary btn-icon icon-left"><i class="fas fa-credit-card"></i> Process Payment</button>
-                        <button class="btn btn-danger" data-confirm="Anda Yakin?|Batalkan pemesanan tiket?" data-confirm-yes="window.location.href = '{{ route('films.index')}}'"><i class="fas fa-times"></i> Cancel</button>
                         </form>
                     </div>
-                    <button class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i> Print</button>
+                    <a class="btn btn-success btn-icon icon-left" href="{{  route('user.history-transaction') }}">Kembali</a>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Blank Page &mdash; Stisla</title>
+    <title>@yield('title-us')</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 
-    {{-- Font Awesome CDN --}}
-    <script src="https://kit.fontawesome.com/5f53d78495.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -81,17 +79,7 @@
                         <a href="index.html">SC</a>
                     </div>
                     <ul class="sidebar-menu">
-                        <li class="menu-header">Booking</li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-fire"></i><span>Seats</span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-fire"></i><span>Form Booking</span>
-                            </a>
-                        </li>
+                        @yield('sidebar-user-booking')
                     </ul>
                 </aside>
             </div>
