@@ -56,7 +56,7 @@
                         Don't have an account? <a href="{{ route('register') }}">Create One</a>
                     </div>
                     <div class="simple-footer">
-                        Copyright &copy; Stisla 2018
+                        Developed by Ilham Yudantyo &copy; 2023
                     </div>
                 </div>
             </div>

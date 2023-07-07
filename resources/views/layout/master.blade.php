@@ -72,36 +72,13 @@
 
             {{-- FOOTER --}}
             <footer class="main-footer">
-                <div class="footer-left">
-                    Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad
-                        Nauval Azhar</a>
-                </div>
-                <div class="footer-right">
-                    2.3.0
+                <div class="text-center">
+                   Developed by Ilham Yudantyo &copy; 2023
                 </div>
             </footer>
         </div>
     </div>
 
-    {{-- Jquery --}}
-    <script src="{{ asset('custom/js/jquery.js') }}">
-        $('.feature-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
-            }
-        })
-    </script>
     <script src="{{ asset('custom/js/owl.carousel.min.js') }}"></script>
 
     <!-- General JS Scripts -->

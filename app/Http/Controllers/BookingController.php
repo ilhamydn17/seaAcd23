@@ -19,7 +19,6 @@ class BookingController extends Controller
     }
 
     public function bookCheckout(Film $film){
-
         // Simpan informasi usia user ke variabel
         $ageForm = request()->input('age_form');
 
