@@ -33,6 +33,10 @@ php artisan migrate
 ```
 php artisan db:seed 
 ```
+7. Menjalankan aplikasi -> pastikan telah menjalankan MySQL dan Apache pada melalui XAMPP control panel terlebih dahulu.
+```
+php artisan serve
+```
 
 ## Usage
 
