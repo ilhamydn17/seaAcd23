@@ -11,7 +11,7 @@ Sebelum menjalankan projek ini, ada beberapa aplikasi/software yang perlu di-ins
 ## Running Project
 1. Clone project ke local.
 ```
-git clone ....
+git clone https://github.com/ilhamydn17/seaAcd23.git
 ```
 2. Jalankan Git Bash pada folder repositori project yang sudah di clone, kemudian update composer.
 ```
