@@ -1,4 +1,4 @@
-# Sea Cinema 📽️
+# SeaFlashTix 📽️
 
 Sea Cinema adalah aplikasi pemesanan tiket bioskop secara online yang memudahkan pengguna untuk mencari, memilih, dan memesan tiket bioskop dengan mudah melalui website. Dengan Sea Cinema, pengguna dapat memesan tiket bioskop yang diinginkan tanpa harus antri di loket bioskop. Aplikasi ini dibuat menggunakan framework [Laravel](https://laravel.com).
 
