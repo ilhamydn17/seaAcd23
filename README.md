@@ -5,7 +5,7 @@ SeaFlashTix adalah aplikasi pemesanan tiket bioskop secara online yang memudahka
 ## Tools Requirement
 Sebelum menjalankan projek ini, ada beberapa aplikasi/software yang perlu di-install dalam PC atau perangkat anda.
 1. [Composer](https://getcomposer.org/download/), package manager PHP.
-2. [XAMPP](https://www.apachefriends.org/), local hosting & database management.
+2. [XAMPP](https://www.apachefriends.org/), local hosting & database management (pastikan unduh XAMPP terbaru dengan versi PHP minimal 8.1).
 3. [Git](https://git-scm.com/downloads), version control system lokal.
 
 ## Running Project
