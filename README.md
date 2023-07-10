@@ -9,7 +9,7 @@ Sebelum menjalankan projek ini, ada beberapa aplikasi/software yang perlu di-ins
 3. [Git](https://git-scm.com/downloads), version control system lokal.
 
 ## Running Project
-Sebelum menjalankan langkah-langkah dibawah ini, jalankan terlebih dahulu MySQL dan Apache melalui XAMPP control panel yang sudah ter-install.
+Sebelum menjalankan langkah-langkah dibawah ini, jalankan terlebih dahulu MySQL dan Apache melalui XAMPP control panel yang sudah ter-install. Jalankan perintah-perintah di bawah ini dengan menggunakan terminal Git Bash.
 1. Clone project ke local PC anda dengan menggunakan terminal Git Bash.
 ```
 git clone https://github.com/ilhamydn17/seaAcd23.git
