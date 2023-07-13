@@ -5,13 +5,14 @@ SeaFlashTix adalah aplikasi pemesanan tiket bioskop secara online yang memudahka
 ## Tools Requirement
 Sebelum menjalankan projek ini, ada beberapa aplikasi/software yang perlu di-install dalam PC atau perangkat anda.
 1. [Composer](https://getcomposer.org/download/), package manager PHP.
-2. [XAMPP](https://www.apachefriends.org/), local hosting & database management.
+2. [XAMPP](https://www.apachefriends.org/), local hosting & database management (pastikan unduh XAMPP terbaru dengan versi PHP minimal 8.1).
 3. [Git](https://git-scm.com/downloads), version control system lokal.
 
 ## Running Project
-1. Clone project ke local.
+Sebelum menjalankan langkah-langkah dibawah ini, jalankan terlebih dahulu MySQL dan Apache melalui XAMPP control panel yang sudah ter-install. Jalankan perintah-perintah di bawah ini dengan menggunakan terminal Git Bash.
+1. Clone project ke local PC anda dengan menggunakan terminal Git Bash.
 ```
-git clone ....
+git clone https://github.com/ilhamydn17/seaAcd23.git
 ```
 2. Jalankan Git Bash pada folder repositori project yang sudah di clone, kemudian update composer.
 ```
@@ -25,24 +26,33 @@ cp .env.example .env
 ```
 php artisan key:generate
 ```
-5. Menjalakan migration
+5. Menjalakan migration, ketik 'yes' jika setelah menjalankan perintah ini muncul permintaan untuk membuat database baru.
 ```
-php artisan migrate 
+php artisan migrate
 ```
 6. Menjalankan seeder untuk generate data aplikasi
 ```
 php artisan db:seed 
 ```
-7. Menjalankan aplikasi -> pastikan telah menjalankan MySQL dan Apache pada melalui XAMPP control panel terlebih dahulu.
+7. Menjalankan aplikasi, setelah menjalankan perintah ini akan muncul alamat host yang sedang berjalan, copy alamat host tersebut dan buka di browser anda.
 ```
 php artisan serve
 ```
+Note
+```
+*). Untuk melakukan login:
+    username => ilham_
+    password => ilham123,
+    atau dapat dilihat pada file UserSeeder.php
+*). Anda juga dapat melakukan registrasi untuk membuat data akun baru.
+```
+
+
 
 ## Credits
 
 1. [Stisla](https://github.com/stisla/stisla), Bootstrap UI template.
 2. [Laravel](https://laravel.com), web aplication framework.
-3. 
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
@@ -54,7 +64,4 @@ php artisan serve
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p align="center">The Laravel framework is open-sourced software licensed under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
