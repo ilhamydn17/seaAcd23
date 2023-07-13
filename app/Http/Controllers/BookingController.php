@@ -40,7 +40,7 @@ class BookingController extends Controller
             return redirect()->back();
         }
 
-        // Get booked seat data
+        // simpan data kursi yang dipesan ke variabel
         $seatNumber = [];
         $confirmDataSeat = [];
         foreach (request()->input('seats') as $item) {
@@ -48,7 +48,7 @@ class BookingController extends Controller
             $seatNumber[] = Seat::find($item)->seat_number;
         }
 
-        // Count total cost based on seats ordered qty
+        // menghitung total cost berdasarkan jumlah kursi yang dipesan
         $totalCost = count($seatNumber) * $film->ticket_price;
 
         return view('app.booking.checkout-booking', compact(['film','ageForm','totalCost', 'seatNumber', 'confirmDataSeat']));

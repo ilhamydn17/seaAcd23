@@ -26,13 +26,9 @@ class UserController extends Controller
             return redirect()->route('user.profile');
         }
 
-        if($user->update(['balance'=> $user->balance + $nominal])){
-            Alert::success('Sukses','Top Up Saldo Berhasil');
-            return redirect()->route('user.profile');
-        }else{
-            Alert::error('Gagal','Top Up Saldo Gagal');
-            return redirect()->route('user.profile');
-        }
+        ($user->update(['balance'=> $user->balance + $nominal])) ? Alert::success('Sukses','Top Up Saldo Berhasil') :  Alert::error('Gagal','Top Up Saldo Gagal');
+
+        return redirect()->route('user.profile');
     }
 
     public function historyTransaction(){

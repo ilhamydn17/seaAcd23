@@ -20,7 +20,7 @@
                         <div class="col-lg-12">
                             <div class="invoice-title">
                                 <h2>Detail Pemesanan</h2>
-                                <div class="invoice-number">Sea Cinema</div>
+                                <div class="invoice-number">SeaFlashTix</div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-10">
